@@ -1,5 +1,6 @@
 # Evidencia 1, Estructura de datos y su procesamiento.
 
+#aqui importamos las colecciones que necesitaremos 
 from collections import namedtuple
 from datetime import datetime
 
@@ -10,6 +11,7 @@ def checarFecha(fecha):
     fechaNuvoFormato = anio + "-" + mes + "-" + dia
     return fechaNuvoFormato
 
+#en esta parte tenemos el diccionario y lista que utilizamos para almacenar los datos de las ventas 
 Venta = namedtuple('Ventas', ('descripcion', 'cantidadVenta', 'precioVenta', 'fechaVenta'))
 DiccionarioVentas = {}
 ListaVentas = []
@@ -19,10 +21,12 @@ subtotal = 0
 print('Bienvenido(a) al negocio de ventas de computo')
 print(separador)
 
+#Aqui se hizo el menu principal de las opciones 
 def Menu():
     opcion = int(input('\nMenú de opciones:\n[1] Registrar una venta\n[2] Consultar una venta\n[3] Consultar ventas de una fecha \n[4] Salir\n» '))
     return opcion
 
+#En esta parte registraremos las ventas, ademas de los datos del cliente o usuario
 def RegistrarVenta():
     ListaVentas=[] # Limpieza de la lista
     print('\n--------- Registro de venta ---------')
@@ -59,6 +63,7 @@ def RegistrarVenta():
             print(separador)
             break
 
+#esta parte es para la opcion de consultar la venta registras por el usuario
 def ConsultarVenta():
     consulta = int(input('Folio a consultar: '))
     dimension, totalVentas = 0 , 0
@@ -78,6 +83,7 @@ def ConsultarVenta():
     else:
         print('La clave no esta registrada')
 
+#Aqui tenemos la parte para la consulta de la venta por una fecha en especifica
 def VentaFecha():
     print("\nIngrese una fecha para buscar todas las ventas de esta")
     print(f'¡Porfavir digite la fecha en el siguiente formato! (Dia/Mes/Año)')
@@ -104,6 +110,8 @@ def VentaFecha():
                 print(f'{"*"*50}')  
                 print(f'\nNINGUNA VENTA ENCONTRADA CON ESA FECHA\n')
                 print(f'FAVOR DE VERIFICAR QUE: {fecFormat} ESTE CORRECTO')
+
+#Aqui tenemos el menu de opciones a seleccionar En la que utilizamos 
 while True:
     opcionElegida = Menu()
     if opcionElegida == 1:
